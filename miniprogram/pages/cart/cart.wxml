@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="cart-list">
+    <view wx:for="{{cart}}" wx:key="id" class="cart-item">
+      <text class="name">{{item.name}}</text>
+      <text class="price">￥{{item.price}}</text>
+    </view>
+  </view>
+
+  <view class="total">
+    <text>总价：￥{{totalPrice}}</text>
+  </view>
+
+  <button class="submit-btn" bindtap="submitOrder">提交订单</button>
+
+  <view wx:if="{{isSubmitted}}" class="success-message">
+    <text>订单提交成功！</text>
+  </view>
+</view>

@@ -1,0 +1,32 @@
+<view class="container">
+  <!-- 左侧类别 Tab -->
+  <scroll-view class="tab-bar" scroll-y>
+    <view 
+      wx:for="{{categories}}" 
+      wx:key="id" 
+      class="tab-item {{activeCategoryId === item.id ? 'active' : ''}}" 
+      bindtap="switchCategory" 
+      data-id="{{item.id}}"
+    >
+      {{item.name}}
+    </view>
+  </scroll-view>
+
+  <!-- 右侧菜单列表 -->
+  <scroll-view class="menu-list" scroll-y>
+    <view wx:for="{{filteredMenu}}" wx:key="id" class="menu-item">
+      <image src="{{item.image}}" mode="aspectFill"></image>
+      <view class="info">
+        <text class="name">{{item.name}}</text>
+        <text class="price">￥{{item.price}}</text>
+      </view>
+      <button class="add-btn" bindtap="addToCart" data-item="{{item}}">加入购物车</button>
+    </view>
+  </scroll-view>
+
+  <!-- 购物车图标 -->
+  <view class="cart-icon" bindtap="goToCart">
+    <text class="icon">🛒</text>
+    <text class="count" wx:if="{{cartCount > 0}}">{{cartCount}}</text>
+  </view>
+</view>

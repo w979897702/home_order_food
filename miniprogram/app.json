@@ -1,0 +1,9 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/cart/cart"
+  ],
+  "window": {
+    "navigationBarTitleText": "私房菜单"
+  }
+}
