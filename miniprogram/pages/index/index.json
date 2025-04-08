@@ -1,6 +1,6 @@
 {
+  "navigationBarTitleText": "私房菜单",
   "usingComponents": {
-    "cloud-tip-modal": "/components/cloudTipModal/index"
-  },
-  "navigationBarBackgroundColor": "#fff"
+    "van-icon": "../../miniprogram_npm/@vant/weapp/icon/index"
+  }
 }

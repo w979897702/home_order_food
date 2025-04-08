@@ -1,32 +1,75 @@
 <view class="container">
-  <!-- 左侧类别 Tab -->
-  <scroll-view class="tab-bar" scroll-y>
+  <!-- 左侧分类导航 -->
+  <scroll-view 
+    class="category-bar" 
+    scroll-y
+    scroll-with-animation
+    enable-flex
+  >
     <view 
       wx:for="{{categories}}" 
-      wx:key="id" 
-      class="tab-item {{activeCategoryId === item.id ? 'active' : ''}}" 
-      bindtap="switchCategory" 
+      wx:key="id"
+      class="category-item {{activeCategoryId === item.id ? 'active' : ''}}"
+      bindtap="switchCategory"
       data-id="{{item.id}}"
     >
-      {{item.name}}
+      <image class="category-icon" src="{{item.icon}}" mode="aspectFit" wx:if="{{item.icon}}"></image>
+      <text>{{item.name}}</text>
     </view>
   </scroll-view>
-
-  <!-- 右侧菜单列表 -->
-  <scroll-view class="menu-list" scroll-y>
-    <view wx:for="{{filteredMenu}}" wx:key="id" class="menu-item">
-      <image src="{{item.image}}" mode="aspectFill"></image>
-      <view class="info">
-        <text class="name">{{item.name}}</text>
-        <text class="price">￥{{item.price}}</text>
+  
+  <!-- 右侧菜品列表 -->
+  <scroll-view 
+    class="dishes-container" 
+    scroll-y
+    scroll-with-animation
+    scroll-top="{{scrollTop}}"
+    bindscroll="onDishesScroll"
+  >
+    <view wx:for="{{categories}}" wx:key="id" class="category-section" id="category-{{item.id}}">
+      <view class="category-title">{{item.name}}</view>
+      
+      <view class="dishes-list">
+        <view 
+          wx:for="{{dishesByCategory[item.id]}}" 
+          wx:for-item="dish"
+          wx:key="id" 
+          class="dish-item"
+        >
+          <image class="dish-image" src="{{dish.image}}" mode="aspectFill" binderror="onImageError" data-id="{{dish.id}}" bindtap="showLargeImage" data-image="{{dish.image}}"></image>
+          <view class="no-image-text" wx:if="{{dish.useDefaultImage}}">马上就有图啦</view>
+          <view class="dish-info">
+            <view class="dish-name">{{dish.name}}</view>
+          </view>
+          <view class="add-button" catchtap="addToCart" data-dish="{{dish}}">
+            <view class="plus-icon">+</view>
+          </view>
+        </view>
       </view>
-      <button class="add-btn" bindtap="addToCart" data-item="{{item}}">加入购物车</button>
     </view>
   </scroll-view>
+  
+  <!-- 右下角悬浮购物车按钮 -->
+  <view class="cart-bar" bindtap="goToCart">
+    <view class="cart-icon-wrapper">
+      <view class="cart-icon {{cartCount > 0 ? 'has-items' : ''}}"></view>
+      <view class="cart-count" wx:if="{{cartCount > 0}}">{{cartCount}}</view>
+    </view>
+    <view class="cart-text">购物车</view>
+  </view>
 
-  <!-- 购物车图标 -->
-  <view class="cart-icon" bindtap="goToCart">
-    <text class="icon">🛒</text>
-    <text class="count" wx:if="{{cartCount > 0}}">{{cartCount}}</text>
+  <!-- 自定义Toast -->
+  <view class="custom-toast {{showToast ? 'show' : ''}}">
+    {{toastMessage}}
+  </view>
+
+  <!-- 飞入购物车动画元素 -->
+  <view class="flying-item" wx:if="{{showFlyAnimation}}" style="left: {{flyAnimationData.x}}px; top: {{flyAnimationData.y}}px;">
+    +1
+  </view>
+
+  <!-- 大图预览 -->
+  <view class="large-image-container" wx:if="{{showLargeImage}}" bindtap="closeLargeImage">
+    <image class="large-image" src="{{currentLargeImage}}" mode="aspectFit" catchtap=""></image>
   </view>
 </view>

@@ -1,0 +1,14 @@
+{
+  "name": "miniprogram",
+  "version": "1.0.0",
+  "description": "小程序目录",
+  "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.11.7"
+  },
+  "devDependencies": {
+    "babel-minify": "^0.5.2",
+    "imagemin": "^9.0.1",
+    "imagemin-webp": "^8.0.0"
+  }
+}
