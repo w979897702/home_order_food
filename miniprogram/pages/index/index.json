@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "私房菜单",
+  "navigationBarTitleText": "璐璐的专属食堂",
   "usingComponents": {
     "van-icon": "../../miniprogram_npm/@vant/weapp/icon/index"
   }

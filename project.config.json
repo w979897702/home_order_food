@@ -34,9 +34,17 @@
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "compileWorklet": false,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true
   },
-  "appid": "wxeb58389cc005ed39",
+  "appid": "wx8272413811b5268a",
   "projectname": "quickstart-wx-cloud",
   "libVersion": "3.7.7",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
@@ -72,5 +80,6 @@
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "simulatorPluginLibVersion": {}
 }

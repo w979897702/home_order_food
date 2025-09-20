@@ -1,13 +1,44 @@
 // 菜品分类数据
-const categories = [
-  { id: 'c001', name: '大鸡大利', order: 1 },
-  { id: 'c002', name: '牛气冲天', order: 2 },
-  { id: 'c003', name: '鱼鱼得水', order: 3 },
-  { id: 'c004', name: '猪猪快来', order: 4 },
-  { id: 'c005', name: '挚爱甜品', order: 5 },
-  { id: 'c006', name: '海鲜', order: 6 },
-  { id: 'c007', name: '健康素菜', order: 7 },
-  { id: 'c008', name: '其他', order: 8 }
+const categories = [{
+    id: 'c01',
+    name: '川湘菜',
+  },
+  {
+    id: 'c02',
+    name: '暂无',
+  },
+  {
+    id: 'c03',
+    name: '淮扬菜',
+  },
+  {
+    id: 'c04',
+    name: '东北菜',
+  },
+  {
+    id: 'c14',
+    name: '其他',
+  }, {
+    id: 'c09',
+    name: '素菜',
+  },
+  {
+    id: 'c10',
+    name: '减脂餐',
+  },
+  {
+    id: 'c11',
+    name: '拌面',
+  },
+  {
+    id: 'c12',
+    name: '汤面',
+  },
+  {
+    id: 'c13',
+    name: '汤',
+  },
+
 ];
 
-module.exports = categories; 
+module.exports = categories;

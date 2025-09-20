@@ -14,7 +14,6 @@
 
   <!-- 购物车为空提示 -->
   <view class="empty-cart" wx:if="{{cartList.length === 0}}">
-    <image class="empty-icon" src="/images/empty-cart.png" mode="aspectFit"></image>
     <view class="empty-text">购物车还是空的</view>
     <view class="go-shop-btn" bindtap="goHome">去点餐</view>
   </view>
@@ -25,7 +24,7 @@
       <text class="cart-title">已选菜品</text>
       <view class="clear-btn" bindtap="clearCart">清空</view>
     </view>
-    
+
     <view class="cart-list">
       <view class="cart-item" wx:for="{{cartList}}" wx:key="index">
         <image class="dish-image" src="{{item.image}}" mode="aspectFill"></image>
@@ -39,17 +38,15 @@
         </view>
       </view>
     </view>
-    
+
     <view class="remark-section">
       <view class="remark-title">备注</view>
-      <textarea class="remark-input" placeholder="如有特殊需求，请在此填写" 
-                bindinput="onRemarkInput" value="{{remark}}"></textarea>
+      <textarea class="remark-input" placeholder="如有特殊需求，请在此填写" bindinput="onRemarkInput" value="{{remark}}"></textarea>
     </view>
   </view>
 
   <!-- 提交订单按钮 -->
-  <view class="submit-btn {{cartList.length === 0 ? 'disabled' : ''}}" 
-        bindtap="{{cartList.length > 0 ? 'submitOrder' : ''}}">
+  <view class="submit-btn {{cartList.length === 0 ? 'disabled' : ''}}" bindtap="{{cartList.length > 0 ? 'submitOrder' : ''}}">
     <text>{{loading ? '提交中...' : '提交订单'}}</text>
   </view>
 </view>
